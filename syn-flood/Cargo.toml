@@ -1,0 +1,24 @@
+[package]
+name = "syn-flood"
+version = "0.1.0"
+authors = ["Capsule Developers <occam_engineering@comcast.com>"]
+license = "Apache-2.0"
+edition = "2018"
+publish = false
+readme = "README.md"
+description = """
+TCP SYN flood example.
+"""
+
+[[bin]]
+name = "synflood"
+path = "main.rs"
+doctest = false
+
+[dependencies]
+capsule = { version = "0.1", path = "../../core" }
+failure = "0.1"
+metrics-core = "0.5"
+metrics-runtime = "0.12"
+tracing = "0.1"
+tracing-subscriber = "0.2"

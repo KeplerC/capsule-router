@@ -1,0 +1,16 @@
+app_name = "skeleton"
+master_core = 0
+dpdk_args = "-v --log-level eal:8"
+duration = 5
+
+[[ports]]
+    name = "eth1"
+    device = "net_pcap0"
+    args = "rx_pcap=dtls.pcap,tx_iface=lo"
+    cores = [0]
+
+
+[[ports]]
+    name = "eth2"
+    device = "0000:00:09.0"
+    cores = [0]
