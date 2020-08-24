@@ -1,0 +1,5 @@
+# Uncleaned Rust Router 
+
+Follow the original instructions to build capsule environment https://github.com/capsule-rs/capsule. Then substitute /capsule/examples with this github. 
+
+The code is in ./skeleton. 
