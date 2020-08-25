@@ -1,4 +1,4 @@
-app_name = "skeleton"
+app_name = "capsule-router"
 master_core = 0
 dpdk_args = "-v --log-level eal:8"
 duration = 5
