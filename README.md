@@ -1,17 +1,31 @@
-# Base skeleton example
+# Capsule Router
 
-The base skeleton example is the simplest Capsule application that can be written.
+A basic UDP router with Capsule framework. 
 
 ## Running the application
 
-The example is located in the `examples/skeleton` sub-directory. To run the application,
-
+Building the capsule and sandbox environment by the official `Vagrant` [virtual machine](https://github.com/capsule-rs/sandbox/blob/master/Vagrantfile) and the `Docker` [sandbox](https://hub.docker.com/repository/docker/getcapsule/sandbox). 
 ```
-/examples/skeleton$ cargo run -- -f skeleton.toml
+host$ git clone --recursive https://github.com/capsule-rs/sandbox.git
+host$ cd sandbox
+host$ vagrant up
 ```
 
-## Explanation
+Then we put our `capsule-router` in the subdirectory of capsule. 
+```
+host$ cd sandbox/capsule
+host$ git clone https://github.com/KeplerC/capsule-router
+```
+Then we modify `sandbox/capsule/Cargo.toml` by adding `capsule-router` to `members`. 
 
-`skeleton.toml` demonstrates the configuration file structure. The application must specify an `app_name`, `master_core`, `mempool`, and at least one `port`. For the skeleton example, the main application thread runs on CPU core `0`. It has a mempool with capacity of `65535` mbufs preallocated. It has one port configured to also run on CPU core `0`, using an in-memory ring-based virtual device.
+After setting up the code environment, we enter the virtual machine and docker by 
+```
+host$ vagrant ssh
+vagrant$ docker run -it --rm     --privileged     --network=host     --name sandbox     --cap-add=SYS_PTRACE     --security-opt seccomp=unconfined     -v /lib/modules:/lib/modules   -v /vagrant/capsule:/capsule  -v /dev/hugepages:/dev/hugepages     getcapsule/sandbox:19.11.1-1.43 /bin/bash
+```
 
-The `main` function first sets up the [`tracing`](https://github.com/tokio-rs/tracing) framework to record log output to the console at `TRACE` level. Then it builds a `Runtime` with the settings from `skeleton.toml` and executes that runtime. Because there are no pipelines or tasks scheduled with the runtime, the application doesn't do anything. It simply waits for the timeout duration of 5 seconds and terminates.
+Finally, we run example by 
+```
+cd capsule/capsule-router
+cargo run -- -f capsule-router.toml
+```
