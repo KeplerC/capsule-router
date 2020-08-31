@@ -12,7 +12,7 @@ Base skeleton example.
 
 [[bin]]
 name = "capsule-router"
-path = "main.rs"
+path = "src/main.rs"
 doctest = false
 
 [dependencies]

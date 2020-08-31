@@ -6,7 +6,7 @@ duration = 5
 [[ports]]
     name = "eth1"
     device = "net_pcap0"
-    args = "rx_pcap=dtls.pcap,tx_iface=lo"
+    args = "rx_pcap=./resources/dtls.pcap,tx_iface=lo"
     cores = [0]
 
 
