@@ -1,6 +1,13 @@
 # Capsule Router
 
-A basic UDP router with Capsule framework. 
+A basic UDP router with Capsule framework. Now we are heading towards an implementation of GDP router(WIP). The current plan is  
+
+- [x] UDP Sending and Fowarding
+- [x] Capsule integration
+- [ ] KVS 
+- [ ] dTLS
+
+The list continues to grow!
 
 ## Running the application
 
