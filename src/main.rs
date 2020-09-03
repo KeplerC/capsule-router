@@ -15,6 +15,9 @@
 *
 * SPDX-License-Identifier: Apache-2.0
 */
+mod utils;
+mod key;
+mod kvs;
 
 use capsule::batch::{Batch, Pipeline, Poll};
 use capsule::config::load_config;
@@ -33,10 +36,8 @@ use std::net::{Ipv4Addr};
 use tracing::{debug, Level};
 use tracing_subscriber::fmt;
 
-mod utils;
+use crate::kvs::*;
 use crate::utils::*;
-
-mod key;
 use crate::key::*;
 
 const V4_ADDR: Ipv4Addr = Ipv4Addr::new(203, 0, 113, 1);
