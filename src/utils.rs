@@ -1,33 +1,13 @@
-use capsule::batch::{Batch, Either, Pipeline, Poll};
-use capsule::config::load_config;
+
+
 use capsule::packets::ip::v4::Ipv4;
-use capsule::packets::ip::v6::{Ipv6, Ipv6Packet};
-use capsule::packets::ip::ProtocolNumbers;
-use capsule::packets::ip::ProtocolNumber;
+use capsule::packets::ip::v6::{Ipv6};
 use capsule::packets::ip::IpPacket;
-use capsule::packets::{EtherTypes, Ethernet, Packet, Tcp, Udp};
-use capsule::{compose, Mbuf, PortQueue, Runtime};
-use chashmap::CHashMap;
+use capsule::packets::{Ethernet, Packet, Tcp, Udp};
+use capsule::{ Mbuf};
 use failure::Fallible;
-use once_cell::sync::Lazy;
-use std::collections::HashMap;
-use std::net::{Ipv4Addr, Ipv6Addr};
-use std::sync::atomic::{AtomicU16, Ordering};
 use tracing::{debug, Level};
 use colored::*;
-use tracing_subscriber::fmt;
-
-use std::sync::Arc;
-
-use std::net::TcpStream;
-use std::io::{Read, Write, stdout};
-use std::io;
-use std::io::prelude::*;
-use std::fs::File;
-
-use rustls;
-use webpki;
-use webpki_roots;
 
 
 
